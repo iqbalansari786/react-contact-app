@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
+import {useHistory} from 'react-router-dom'
 
 function AddContact(props) {
+    const history=useHistory();
     const [contact, setContact] = useState({
         email: "",
         mobile: "",
@@ -20,6 +22,7 @@ function AddContact(props) {
             email:"",
             mobile: ""
         })
+        history.push('/');
      
     }
     return (
