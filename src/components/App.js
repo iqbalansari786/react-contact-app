@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Header from './Header';
+import { uuid } from 'uuidv4';
 import AddContact from './AddContact'
-import ContactCard from './ContactCard'
 import './App.css';
 import ListContact from './ListContact';
 
@@ -11,7 +11,13 @@ function App() {
 
   const addContactHandler = (contact) => {
 
-    setContacts([...contacts, contact])
+    setContacts([...contacts, {id:uuid(),...contact}])
+  }
+  const removeContactHandler=(id)=>{
+  var  newContactList=contacts.filter((contact)=>{
+    return contact.id !==id;
+  });
+  setContacts(newContactList);
   }
   useEffect(() => {
     var localStorageContactList = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
@@ -27,7 +33,7 @@ function App() {
     <>
       <Header />
       <AddContact addContactHandler={addContactHandler} />
-      <ListContact contact={contacts} />
+      <ListContact contact={contacts} getContactid={removeContactHandler} />
     </>
   );
 }

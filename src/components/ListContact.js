@@ -2,6 +2,10 @@ import React from 'react'
 import ContactCard from './ContactCard'
 
 function ListContact(props) {
+    const deletContactHandler=(id)=>{
+        props.getContactid(id);
+    
+    };
     return (
         <>
             <div className="row">
@@ -10,7 +14,7 @@ function ListContact(props) {
                         <h3 className="panel-heading">Contact List</h3>
                         <div className="panel-body">
 
-                            <ContactCard contactList={props.contact}/>
+                            <ContactCard contactList={props.contact} clickHandler={deletContactHandler}/>
                         </div>
                     </div>
 

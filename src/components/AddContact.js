@@ -29,7 +29,7 @@ function AddContact(props) {
                     <div className="panel panel-default">
                         <h3 className="panel-heading">Contact form</h3>
                         <div className="panel-body">
-                            <form  onSubmit={e => formSubmit(e)}>
+                            <form  onSubmit={e => formSubmit(e)} method="POST">
                                 <div className="form-group">
                                     <input 
                                     type="text" 
