@@ -18,7 +18,7 @@ const ContactCard = (props) => {
                         <div className="col-md-12">${contact.mobile}</div>
                     </div>
                     <div className="col-md-8">
-                        <p class="text-right">Delete</p></div>
+                        <p class="text-right" onClick={()=>{props.clickHandler(contact.id)}} style={{cursor:"pointer"}}>Delete</p></div>
 
                 </div>
                 <hr />
